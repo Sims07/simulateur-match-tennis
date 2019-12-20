@@ -107,9 +107,9 @@ public class TennisRulesTest {
     class SetRulesTest {
         @Test
         public void winASetFromSet5ToSet6() {
-            givenTennisRuleAndInitScore("5-4", "40-30")
+            givenTennisRuleAndInitScore("5-5", "40-30")
                     .whenPlayerWinPoint("1")
-                    .thenSetScoreIs("6-4", "0-0")
+                    .thenSetScoreIs("6-5", "0-0")
                     .thenGameScoreIs("0-0");
 
             givenTennisRuleAndInitScore("2-5", "30-40")

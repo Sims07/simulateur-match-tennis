@@ -8,4 +8,7 @@ import simon.chareyron.tennis.usecase.model.TennisScoreModel;
 public interface SimulateTennisMatchOutput {
 
     void onScoreChanged(int winningPlayer, TennisScoreModel tennisScoreModel);
+
+    void onPlayerWinTheMatch(int winningPlayer, TennisScoreModel tennisScoreModel);
+
 }

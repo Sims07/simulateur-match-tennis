@@ -81,4 +81,8 @@ public class TennisScore {
         return this.gameScore;
     }
 
+    @Override
+    public String toString() {
+        return "TennisScore{" + "setScores=" + setScores + ", currentSet=" + currentSet + ", gameScore=" + gameScore + '}';
+    }
 }

@@ -1,6 +1,8 @@
 package simon.chareyron.coding.tennisrules.domain;
 
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -24,16 +26,17 @@ public class Referee {
 
     public Player getWiningPlayer() {
         Player winningPlayer = null;
-        Map.Entry<Player, Long> playerWithMaxSetWon = tennisScore.getSetsScore()
-                                                                 .stream()
-                                                                 .map(SetScore::getWinninPlayer)
-                                                                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                                                                 .entrySet()
-                                                                 .stream()
-                                                                 .max(Map.Entry.comparingByValue())
-                                                                 .get();
-        if (playerWithMaxSetWon.getValue() == nbWinningSet) {
-            winningPlayer = playerWithMaxSetWon.getKey();
+        Optional<Map.Entry<Player, Long>> playerWithMaxSetWonOpt = tennisScore.getSetsScore()
+                                                                              .stream()
+                                                                              .map(SetScore::getWinninPlayer)
+                                                                              .filter(Objects::nonNull)
+                                                                              .collect(Collectors.groupingBy(Function.identity(),
+                                                                                                             Collectors.counting()))
+                                                                              .entrySet()
+                                                                              .stream()
+                                                                              .max(Map.Entry.comparingByValue());
+        if (playerWithMaxSetWonOpt.isPresent() && playerWithMaxSetWonOpt.map(Map.Entry::getValue).orElse(0L) == nbWinningSet) {
+            winningPlayer = playerWithMaxSetWonOpt.get().getKey();
         }
         return winningPlayer;
     }

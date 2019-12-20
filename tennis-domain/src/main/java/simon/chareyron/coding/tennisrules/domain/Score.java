@@ -71,5 +71,8 @@ public abstract class Score<T> {
         return score.get(Player._2);
     }
 
-
+    @Override
+    public String toString() {
+        return "Score{" + "score=" + score + '}';
+    }
 }

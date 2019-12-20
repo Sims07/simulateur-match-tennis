@@ -12,6 +12,7 @@
     <modules>
         <module>tennis-domain</module>
         <module>tennis-use-case</module>
+        <module>tennis-console</module>
     </modules>
 
      <properties>
@@ -24,7 +25,8 @@
         <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
         <coveralls-maven-plugin.version>4.4.0-SNAPSHOT</coveralls-maven-plugin.version>
         <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
-    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version></properties>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+     </properties>
 
     <repositories>
         <repository>

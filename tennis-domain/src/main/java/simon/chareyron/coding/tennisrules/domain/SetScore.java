@@ -14,7 +14,8 @@ public class SetScore extends Score<Integer> {
     }
 
     private boolean isPlayerWonWithoutTieBreak(Player winnerPointPlayer) {
-        return getScorePlayer(winnerPointPlayer) >= 6 && getScoreLooserPlayer(winnerPointPlayer) < 6;
+        return getScorePlayer(winnerPointPlayer) == 6 && getScoreLooserPlayer(winnerPointPlayer) < 5
+                || getScorePlayer(winnerPointPlayer) == 7 && getScoreLooserPlayer(winnerPointPlayer) == 5;
     }
 
     public TieBreakScore getTieBreakScore() {
@@ -30,6 +31,6 @@ public class SetScore extends Score<Integer> {
     }
 
     public Player getWinninPlayer() {
-        return isPlayerWon(Player._1)?Player._1:Player._2;
+        return isPlayerWon(Player._1)?Player._1: isPlayerWon(Player._2) ? Player._2 : null;
     }
 }

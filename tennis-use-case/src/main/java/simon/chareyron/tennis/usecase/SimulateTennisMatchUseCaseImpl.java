@@ -20,13 +20,24 @@ public class SimulateTennisMatchUseCaseImpl implements SimulateTennisMatchUseCas
 
     @Override
     public void playRandomMatch(int nbWinningSet) {
-        TennisScore tennisScore = new TennisScore();
+        TennisScore tennisScore = initScoreMatchTennis();
         Referee referee = new Referee(tennisScore, nbWinningSet);
         while (referee.getWiningPlayer() == null) {
             Player winnerPointPlayer = selectRandomlyWinningPlayer(random);
             referee.winPoint(winnerPointPlayer);
+            System.out.println(tennisScore);
             simulateTennisMatchOutput.onScoreChanged(winnerPointPlayer.ordinal(),map(tennisScore));
         }
+        simulateTennisMatchOutput.onPlayerWinTheMatch(referee.getWiningPlayer().ordinal(), map(tennisScore));
+    }
+
+    private TennisScore initScoreMatchTennis() {
+        TennisScore tennisScore = new TennisScore();
+        tennisScore.setSetScorePlayer(Player._1, 0, 1);
+        tennisScore.setSetScorePlayer(Player._2,0,1);
+        tennisScore.setGameScorePlayer(Player._1,"0");
+        tennisScore.setGameScorePlayer(Player._2,"0");
+        return tennisScore;
     }
 
     private TennisScoreModel map(TennisScore tennisScore) {
