@@ -16,6 +16,26 @@ public class TennisScore {
         this.setScores = new HashMap<>();
     }
 
+    public Map<Integer, SetScore> getSetScores() {
+        return setScores;
+    }
+
+    public void setSetScores(Map<Integer, SetScore> setScores) {
+        this.setScores = setScores;
+    }
+
+    public int getCurrentSet() {
+        return currentSet;
+    }
+
+    public void setCurrentSet(int currentSet) {
+        this.currentSet = currentSet;
+    }
+
+    public void setGameScore(GameScore gameScore) {
+        this.gameScore = gameScore;
+    }
+
     public void addNewSet() {
         this.currentSet++;
         setScores.put(currentSet, new SetScore());

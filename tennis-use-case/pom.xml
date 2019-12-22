@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-     <parent>
+    <parent>
         <artifactId>simulateur-match-tennis</artifactId>
         <groupId>simon.chareyron.tennis</groupId>
         <version>1.0-SNAPSHOT</version>
@@ -14,6 +14,10 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
         <dependency>
             <groupId>simon.chareyron.tennis</groupId>
             <artifactId>tennis-domain</artifactId>

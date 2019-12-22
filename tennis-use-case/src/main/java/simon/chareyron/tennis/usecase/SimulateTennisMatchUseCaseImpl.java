@@ -1,20 +1,24 @@
 package simon.chareyron.tennis.usecase;
 
-import java.util.Random;
 import simon.chareyron.coding.tennisrules.domain.Player;
 import simon.chareyron.coding.tennisrules.domain.Referee;
 import simon.chareyron.coding.tennisrules.domain.TennisScore;
+import simon.chareyron.tennis.usecase.mapper.TennisScoreMapper;
 import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+
+import java.util.Random;
 
 /**
  * @author djz4712
  */
 public class SimulateTennisMatchUseCaseImpl implements SimulateTennisMatchUseCase {
 
+    private final TennisScoreMapper tennisScoreMapper;
     private final SimulateTennisMatchOutput simulateTennisMatchOutput;
     private final Random random = new Random();
 
-    public SimulateTennisMatchUseCaseImpl(SimulateTennisMatchOutput simulateTennisMatchOutput) {
+    public SimulateTennisMatchUseCaseImpl(TennisScoreMapper tennisScoreMapper, SimulateTennisMatchOutput simulateTennisMatchOutput) {
+        this.tennisScoreMapper = tennisScoreMapper;
         this.simulateTennisMatchOutput = simulateTennisMatchOutput;
     }
 
@@ -25,8 +29,7 @@ public class SimulateTennisMatchUseCaseImpl implements SimulateTennisMatchUseCas
         while (referee.getWiningPlayer() == null) {
             Player winnerPointPlayer = selectRandomlyWinningPlayer(random);
             referee.winPoint(winnerPointPlayer);
-            System.out.println(tennisScore);
-            simulateTennisMatchOutput.onScoreChanged(winnerPointPlayer.ordinal(),map(tennisScore));
+            simulateTennisMatchOutput.onScoreChanged(winnerPointPlayer.ordinal(), map(tennisScore));
         }
         simulateTennisMatchOutput.onPlayerWinTheMatch(referee.getWiningPlayer().ordinal(), map(tennisScore));
     }
@@ -34,15 +37,14 @@ public class SimulateTennisMatchUseCaseImpl implements SimulateTennisMatchUseCas
     private TennisScore initScoreMatchTennis() {
         TennisScore tennisScore = new TennisScore();
         tennisScore.setSetScorePlayer(Player._1, 0, 1);
-        tennisScore.setSetScorePlayer(Player._2,0,1);
-        tennisScore.setGameScorePlayer(Player._1,"0");
-        tennisScore.setGameScorePlayer(Player._2,"0");
+        tennisScore.setSetScorePlayer(Player._2, 0, 1);
+        tennisScore.setGameScorePlayer(Player._1, "0");
+        tennisScore.setGameScorePlayer(Player._2, "0");
         return tennisScore;
     }
 
     private TennisScoreModel map(TennisScore tennisScore) {
-        // TODO add mapping
-        return new TennisScoreModel();
+        return tennisScoreMapper.map(tennisScore);
     }
 
     private Player selectRandomlyWinningPlayer(Random random) {

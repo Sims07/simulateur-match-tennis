@@ -12,6 +12,22 @@ public abstract class Score<T> {
 
     private Map<Player, T> score = new HashMap();
 
+    public T[] getOrderedScores() {
+        return orderedScores;
+    }
+
+    public void setOrderedScores(T[] orderedScores) {
+        this.orderedScores = orderedScores;
+    }
+
+    public Map<Player, T> getScore() {
+        return score;
+    }
+
+    public void setScore(Map<Player, T> score) {
+        this.score = score;
+    }
+
     public Score() {
         reset();
     }
