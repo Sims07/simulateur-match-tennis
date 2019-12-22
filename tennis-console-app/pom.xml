@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>simulateur-match-tennis</artifactId>
+        <groupId>simon.chareyron.tennis</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <properties>
+        <reactor-core.version>3.2.12.RELEASE</reactor-core.version>
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>simon.chareyron.tennis</groupId>
+    <artifactId>tennis-console-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>simon.chareyron.tennis</groupId>
+            <artifactId>tennis-controller</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>simon.chareyron.tennis</groupId>
+            <artifactId>tennis-presenter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>${reactor-core.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

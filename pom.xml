@@ -12,7 +12,11 @@
     <modules>
         <module>tennis-domain</module>
         <module>tennis-use-case</module>
-        <module>tennis-console</module>
+        <module>tennis-controller</module>
+        <module>tennis-presenter</module>
+
+        <module>tennis-console-app</module>
+        <module>tennis-rest-spring-app</module>
     </modules>
 
     <properties>

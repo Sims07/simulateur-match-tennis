@@ -1,0 +1,23 @@
+@startuml
+skinparam linetype orth
+title Clean architecture Attempt
+
+[tennis-use-case] as uc
+[tennis-domain] as domain
+
+[tennis-console-app] as consoleApp
+[tennis-presenter] as presenter
+[tennis-controller] as controller
+
+[tennis-mapper-mapstruct] as mapper
+
+consoleApp -D-> presenter
+consoleApp -D-> controller
+controller -D-> uc
+presenter -D-|> uc
+
+uc -D-> domain
+mapper -R-|> uc
+mapper -R-> domain
+
+@enduml
