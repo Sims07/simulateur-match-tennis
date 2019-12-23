@@ -3,16 +3,16 @@ package simon.chareyron.tennis.controller.impl;
 import simon.chareyron.tennis.controller.TennisMatchSimulatorController;
 import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCase;
 
-public class TennisMatchSimulatorControllerImpl implements TennisMatchSimulatorController {
+public class TennisMatchSimulatorControllerImpl<T> implements TennisMatchSimulatorController {
 
-    private final SimulateTennisMatchUseCase tennisMatchUseCase;
+    private final SimulateTennisMatchUseCase<T> tennisMatchUseCase;
 
     public TennisMatchSimulatorControllerImpl(SimulateTennisMatchUseCase tennisMatchUseCase) {
         this.tennisMatchUseCase = tennisMatchUseCase;
     }
 
     @Override
-    public void simulateTennisMatch(int nbWinningSet) {
-        tennisMatchUseCase.playRandomMatch(nbWinningSet);
+    public T simulateTennisMatch(int nbWinningSet) {
+        return tennisMatchUseCase.playRandomMatch(nbWinningSet);
     }
 }

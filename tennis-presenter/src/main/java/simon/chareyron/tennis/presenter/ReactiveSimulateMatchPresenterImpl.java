@@ -1,25 +1,15 @@
 package simon.chareyron.tennis.presenter;
 
-import reactor.core.publisher.FluxSink;
+import reactor.core.publisher.Flux;
+import simon.chareyron.tennis.usecase.SimulateTennisMatchOutput;
 import simon.chareyron.tennis.usecase.model.TennisScoreModel;
 
-public class ReactiveSimulateMatchPresenterImpl implements ReactiveSimulateMatchPresenter {
+import java.util.List;
 
-    private FluxSink<TennisScoreModel> tennisScoreFlux;
-
-    @Override
-    public void onScoreChanged(int winningPlayer, TennisScoreModel tennisScoreModel) {
-        tennisScoreFlux.next(tennisScoreModel);
-    }
+public class ReactiveSimulateMatchPresenterImpl implements SimulateTennisMatchOutput<Flux<TennisScoreModel>> {
 
     @Override
-    public void onPlayerWinTheMatch(int winningPlayer, TennisScoreModel tennisScoreModel) {
-        tennisScoreFlux.next(tennisScoreModel);
-        tennisScoreFlux.complete();
-    }
-
-    @Override
-    public void setCurrentFluxSink(FluxSink<TennisScoreModel> fluxSink) {
-        this.tennisScoreFlux = fluxSink;
+    public Flux<TennisScoreModel> presentMatchScores(List<TennisScoreModel> tennisScoreModel) {
+        return Flux.fromIterable(tennisScoreModel);
     }
 }

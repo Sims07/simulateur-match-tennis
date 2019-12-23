@@ -1,6 +1,6 @@
 package simon.chareyron.tennis.controller;
 
-public interface TennisMatchSimulatorController {
+public interface TennisMatchSimulatorController<T> {
 
-    void simulateTennisMatch(int nbWinningSet);
+    T simulateTennisMatch(int nbWinningSet);
 }

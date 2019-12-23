@@ -3,7 +3,7 @@ package simon.chareyron.tennis.usecase;
 /**
  * @author djz4712
  */
-public interface SimulateTennisMatchUseCase {
+public interface SimulateTennisMatchUseCase<T> {
 
-    void playRandomMatch(int nbWinningSet);
+    T playRandomMatch(int nbWinningSet);
 }

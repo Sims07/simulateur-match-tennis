@@ -2,13 +2,12 @@ package simon.chareyron.tennis.usecase;
 
 import simon.chareyron.tennis.usecase.model.TennisScoreModel;
 
+import java.util.List;
+
 /**
  * @author djz4712
  */
-public interface SimulateTennisMatchOutput {
+public interface SimulateTennisMatchOutput<T> {
 
-    void onScoreChanged(int winningPlayer, TennisScoreModel tennisScoreModel);
-
-    void onPlayerWinTheMatch(int winningPlayer, TennisScoreModel tennisScoreModel);
-
+    T presentMatchScores(List<TennisScoreModel> tennisScoreModel);
 }

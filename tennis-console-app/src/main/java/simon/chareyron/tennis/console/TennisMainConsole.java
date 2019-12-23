@@ -16,16 +16,13 @@ import java.time.temporal.ChronoUnit;
 public class TennisMainConsole {
 
     public static void main(String[] args) {
-        Flux<TennisScoreModel> objectFlux = Flux.<TennisScoreModel>create(fluxSink -> {
-            ReactiveSimulateMatchPresenterImpl simulateTennisMatchOutput = new ReactiveSimulateMatchPresenterImpl();
-            simulateTennisMatchOutput.setCurrentFluxSink(fluxSink);
-            new TennisMatchSimulatorControllerImpl
-                    (new SimulateTennisMatchUseCaseImpl(
-                            new TennisScoreMapperImpl(),
-                            simulateTennisMatchOutput
-                    )).simulateTennisMatch(2);
-        }).delayElements(Duration.of(1, ChronoUnit.MILLIS));
-        objectFlux.subscribe(System.out::println);
-        objectFlux.blockLast();
+        new TennisMatchSimulatorControllerImpl<Flux<TennisScoreModel>>
+                (new SimulateTennisMatchUseCaseImpl(
+                        new TennisScoreMapperImpl(),
+                        new ReactiveSimulateMatchPresenterImpl()
+                )).simulateTennisMatch(2)
+                .delayElements(Duration.of(100, ChronoUnit.MILLIS))
+                .doOnNext(System.out::println)
+                .blockLast();
     }
 }
