@@ -1,18 +1,29 @@
 @startuml
-skinparam linetype orth
+skinparam linetype ortho
 title Clean architecture Attempt
 
+package "Business Rules" {
 [tennis-use-case] as uc
 [tennis-domain] as domain
+}
 
+package "App-Framework" {
 [tennis-console-app] as consoleApp
+[tennis-rest-spring-app] as restSpringApp
+}
+
+package "Mapper-Framework" {
+[tennis-mapper-mapstruct] as mapper
+}
+
+package "Adapters" {
 [tennis-presenter] as presenter
 [tennis-controller] as controller
+}
 
-[tennis-mapper-mapstruct] as mapper
-
-consoleApp -D-> presenter
 consoleApp -D-> controller
+restSpringApp -D-> controller
+
 controller -D-> uc
 presenter -D-|> uc
 
