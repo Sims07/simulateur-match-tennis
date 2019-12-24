@@ -2,9 +2,9 @@ package simon.chareyron.tennis.console;
 
 import reactor.core.publisher.Flux;
 import simon.chareyron.tennis.controller.impl.TennisMatchSimulatorControllerImpl;
+import simon.chareyron.tennis.mapper.mapstruct.TennisScoreMapStrutMapperImpl;
 import simon.chareyron.tennis.presenter.ReactiveSimulateMatchPresenterImpl;
 import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCaseImpl;
-import simon.chareyron.tennis.usecase.mapper.TennisScoreMapperImpl;
 import simon.chareyron.tennis.usecase.model.TennisScoreModel;
 
 import java.time.Duration;
@@ -18,7 +18,7 @@ public class TennisMainConsole {
     public static void main(String[] args) {
         new TennisMatchSimulatorControllerImpl<Flux<TennisScoreModel>>
                 (new SimulateTennisMatchUseCaseImpl(
-                        new TennisScoreMapperImpl(),
+                        new TennisScoreMapStrutMapperImpl(),
                         new ReactiveSimulateMatchPresenterImpl()
                 )).simulateTennisMatch(2)
                 .delayElements(Duration.of(100, ChronoUnit.MILLIS))

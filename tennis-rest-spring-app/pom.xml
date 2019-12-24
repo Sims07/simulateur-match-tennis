@@ -26,6 +26,11 @@
             <artifactId>tennis-presenter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>simon.chareyron.tennis</groupId>
+            <artifactId>tennis-mapper-mapstruct</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

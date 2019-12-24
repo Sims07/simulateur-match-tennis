@@ -17,6 +17,7 @@
 
         <module>tennis-console-app</module>
         <module>tennis-rest-spring-app</module>
+        <module>tennis-mapper-mapstruct</module>
     </modules>
 
     <properties>

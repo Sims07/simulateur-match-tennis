@@ -5,12 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Flux;
 import simon.chareyron.tennis.controller.TennisMatchSimulatorController;
 import simon.chareyron.tennis.controller.impl.TennisMatchSimulatorControllerImpl;
+import simon.chareyron.tennis.mapper.mapstruct.TennisScoreMapStrutMapperImpl;
 import simon.chareyron.tennis.presenter.ReactiveSimulateMatchPresenterImpl;
 import simon.chareyron.tennis.usecase.SimulateTennisMatchOutput;
 import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCase;
 import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCaseImpl;
 import simon.chareyron.tennis.usecase.mapper.TennisScoreMapper;
-import simon.chareyron.tennis.usecase.mapper.TennisScoreMapperImpl;
 import simon.chareyron.tennis.usecase.model.TennisScoreModel;
 
 @Configuration
@@ -23,7 +23,7 @@ public class AppConfig {
 
     @Bean
     public TennisScoreMapper tennisScoreMapper() {
-        return new TennisScoreMapperImpl();
+        return new TennisScoreMapStrutMapperImpl();
     }
 
     @Bean
