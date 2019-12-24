@@ -1,24 +1,27 @@
 @startuml
 skinparam linetype ortho
+skinparam component {
+    BorderColor #000000
+}
 title Clean architecture Attempt
 
-package "Business Rules" {
-[tennis-use-case] as uc
-[tennis-domain] as domain
+rectangle "Business Rules" {
+[tennis-use-case] as uc #ff6666
+[tennis-domain] as domain #ffff99
 }
 
-package "App-Framework" {
-[tennis-console-app] as consoleApp
-[tennis-rest-spring-app] as restSpringApp
+rectangle "Frameworks & Drivers" {
+[tennis-console-app] as consoleApp #99ccff
+[tennis-rest-spring-app] as restSpringApp #99ccff
 }
 
-package "Mapper-Framework" {
-[tennis-mapper-mapstruct] as mapper
+rectangle "Mapper Frameworks" {
+[tennis-mapper-mapstruct] as mapper #99ccff
 }
 
-package "Adapters" {
-[tennis-presenter] as presenter
-[tennis-controller] as controller
+rectangle "Adapters" {
+[tennis-presenter] as presenter #ccffcc
+[tennis-controller] as controller #ccffcc
 }
 
 consoleApp -D-> controller
