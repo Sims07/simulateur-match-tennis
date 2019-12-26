@@ -13,6 +13,7 @@ rectangle "Business Rules" {
 rectangle "Frameworks & Drivers" {
 [tennis-console-app] as consoleApp #99ccff
 [tennis-rest-spring-app] as restSpringApp #99ccff
+[tennis-rest-quarkus-app] as restQuarkusApp #99ccff
 }
 
 rectangle "Mapper Frameworks" {
@@ -25,6 +26,7 @@ rectangle "Adapters" {
 }
 
 consoleApp -D-> controller
+restQuarkusApp  -D-> controller
 restSpringApp -D-> controller
 
 controller -D-> uc
