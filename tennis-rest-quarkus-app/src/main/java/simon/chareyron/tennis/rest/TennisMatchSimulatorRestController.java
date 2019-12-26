@@ -1,5 +1,7 @@
 package simon.chareyron.tennis.rest;
 
+import io.reactivex.Flowable;
+import reactor.adapter.rxjava.RxJava2Adapter;
 import reactor.core.publisher.Flux;
 import simon.chareyron.tennis.controller.TennisMatchSimulatorController;
 import simon.chareyron.tennis.usecase.model.TennisScoreModel;
@@ -7,9 +9,8 @@ import simon.chareyron.tennis.usecase.model.TennisScoreModel;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 
 @Path("/tennisMatchSimulation")
 public class TennisMatchSimulatorRestController {
@@ -21,10 +22,8 @@ public class TennisMatchSimulatorRestController {
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<TennisScoreModel> simulateMatch() {
-        List<TennisScoreModel> tennisScoreModels = new ArrayList<>();
-        tennisMatchSimulatorController.simulateTennisMatch(2).doOnNext(tennisScoreModels::add).blockLast();
-        return tennisScoreModels;
+    @Produces("text/event-stream")
+    public Flowable<TennisScoreModel> simulateMatch() {
+        return RxJava2Adapter.fluxToFlowable(tennisMatchSimulatorController.simulateTennisMatch(2).delayElements(Duration.of(100, ChronoUnit.MILLIS)));
     }
 }

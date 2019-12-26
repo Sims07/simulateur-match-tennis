@@ -18,6 +18,7 @@
 
         <module>tennis-console-app</module>
         <module>tennis-rest-spring-app</module>
+        <module>tennis-rest-quarkus-app</module>
     </modules>
 
     <properties>
@@ -132,6 +133,7 @@
                         </execution>
                     </executions>
                 </plugin>
+
             </plugins>
         </pluginManagement>
 
