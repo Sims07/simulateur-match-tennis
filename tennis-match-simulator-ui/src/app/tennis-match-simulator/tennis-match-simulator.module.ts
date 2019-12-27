@@ -6,13 +6,15 @@ import { TennisMatchSimulatorComponent } from './tennis-match-simulator.componen
 import { SetScoreComponent } from './set-score/set-score.component';
 import { GameScoreComponent } from './game-score/game-score.component';
 import { TiebreakScoreComponent } from './tiebreak-score/tiebreak-score.component';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
     SetScoreComponent,
     TennisMatchSimulatorComponent,
     GameScoreComponent,
-    TiebreakScoreComponent
+    TiebreakScoreComponent,
+    PlayerComponent
   ],
   exports: [
                TennisMatchSimulatorComponent
