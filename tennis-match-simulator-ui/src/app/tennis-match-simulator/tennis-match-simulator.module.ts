@@ -17,7 +17,8 @@ import { PlayerComponent } from './player/player.component';
     PlayerComponent
   ],
   exports: [
-               TennisMatchSimulatorComponent
+    SetScoreComponent,
+    TennisMatchSimulatorComponent
              ],
   imports: [
     BrowserModule,

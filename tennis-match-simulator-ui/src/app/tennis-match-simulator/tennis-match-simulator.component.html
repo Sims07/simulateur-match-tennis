@@ -1,10 +1,15 @@
-<div fxLayout="row" fxFlexFill fxLayoutAlign="space-around center" >
-  <player></player>
-  <div fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
-    <set-score></set-score>
-    <game-score></game-score>
+<div fxLayout="row" fxFlexFill fxLayoutAlign="space-around center">
+  <player fxFlex="20"></player>
+  <div fxFlex="30" fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
+    <set-score setIndex=1></set-score>
+    <set-score setIndex=2></set-score>
+    <set-score setIndex=3></set-score>
+    <div fxFlex="20" fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
+      <game-score></game-score>
+    </div>
+    <button (click)="simulateMatch()">Simulate Match</button>
   </div>
-  <player></player>
+  <player fxFlex="20"></player>
 </div>
 
 

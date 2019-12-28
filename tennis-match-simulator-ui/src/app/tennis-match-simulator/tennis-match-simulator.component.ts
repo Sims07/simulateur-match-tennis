@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TennisMatchSimulatorService } from '../tennis-match-simulator.service';
 
 @Component({
   selector: 'tennis-match-simulator',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TennisMatchSimulatorComponent implements OnInit {
 
-  constructor() { }
+  simulatedMatch$;
+
+  constructor(private tennisMatchSimulator: TennisMatchSimulatorService) { }
 
   ngOnInit() {
+    this.simulatedMatch$= this.tennisMatchSimulator.simulatedMatch$;
+  }
+
+  simulateMatch(){
+    this.tennisMatchSimulator.simulateTennisMatch();
   }
 
 }

@@ -124,5 +124,10 @@
       }
     }
   },
-  "defaultProject": "tennis-match-simulator-ui"
+  "defaultProject": "tennis-match-simulator-ui",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
