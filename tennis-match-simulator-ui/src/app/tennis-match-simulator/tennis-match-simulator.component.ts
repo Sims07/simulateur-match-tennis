@@ -14,11 +14,7 @@ export class TennisMatchSimulatorComponent implements OnInit {
   constructor(private tennisMatchSimulator: TennisMatchSimulatorService) { }
 
   ngOnInit() {
+    this.tennisMatchSimulator.simulateTennisMatch();
     this.simulatedMatch$= this.tennisMatchSimulator.simulatedMatch$;
   }
-
-  simulateMatch(){
-    this.tennisMatchSimulator.simulateTennisMatch();
-  }
-
 }
