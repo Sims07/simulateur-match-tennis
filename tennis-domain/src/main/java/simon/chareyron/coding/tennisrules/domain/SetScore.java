@@ -9,13 +9,14 @@ public class SetScore extends Score<Integer> {
     }
 
     protected boolean isPlayerWon(Player winnerPointPlayer) {
-
-        return isPlayerWonWithoutTieBreak(winnerPointPlayer) || tieBreakScore != null;
+        return isPlayerWonWithoutTieBreak(winnerPointPlayer);
     }
 
     private boolean isPlayerWonWithoutTieBreak(Player winnerPointPlayer) {
-        return getScorePlayer(winnerPointPlayer) == 6 && getScoreLooserPlayer(winnerPointPlayer) < 5
-                || getScorePlayer(winnerPointPlayer) == 7 && getScoreLooserPlayer(winnerPointPlayer) == 5;
+        Integer scoreWinnerPlayer = getScorePlayer(winnerPointPlayer);
+        Integer scoreLooserPlayer = getScoreLooserPlayer(winnerPointPlayer);
+        return scoreWinnerPlayer == 6 && scoreLooserPlayer < 5
+                || scoreWinnerPlayer == 7 && (scoreLooserPlayer == 5 || scoreLooserPlayer == 6);
     }
 
     public TieBreakScore getTieBreakScore() {
@@ -31,6 +32,6 @@ public class SetScore extends Score<Integer> {
     }
 
     public Player getWinninPlayer() {
-        return isPlayerWon(Player._1)?Player._1: isPlayerWon(Player._2) ? Player._2 : null;
+        return isPlayerWon(Player._1) ? Player._1 : isPlayerWon(Player._2) ? Player._2 : null;
     }
 }

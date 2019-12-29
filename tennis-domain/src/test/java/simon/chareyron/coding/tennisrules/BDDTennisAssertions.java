@@ -1,10 +1,11 @@
 package simon.chareyron.coding.tennisrules;
 
+import simon.chareyron.coding.tennisrules.domain.Player;
+import simon.chareyron.coding.tennisrules.domain.TennisScore;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import simon.chareyron.coding.tennisrules.domain.Player;
-import simon.chareyron.coding.tennisrules.domain.TennisScore;
 
 public class BDDTennisAssertions {
 
@@ -16,6 +17,14 @@ public class BDDTennisAssertions {
         TennisScore tennisScore = new TennisScore();
         initSetScore(tennisScore, setScores);
         initGameScore(tennisScore, gameScore);
+        return new BDDTennisAssertion(tennisScore, nbWinningSet);
+    }
+
+    public static BDDTennisAssertion givenTennisRuleAndInitScore(List<String> setScores, int nbWinningSet, String gameScore, String tieBreakScore) {
+        TennisScore tennisScore = new TennisScore();
+        initSetScore(tennisScore, setScores);
+        initGameScore(tennisScore, gameScore);
+        initTieBreakScore(tennisScore, tieBreakScore);
         return new BDDTennisAssertion(tennisScore, nbWinningSet);
     }
 
@@ -51,10 +60,9 @@ public class BDDTennisAssertions {
             String[] setScorePlayers = setScore.split("-");
             tennisScore.setSetScorePlayer(Player._1, Integer.parseInt(setScorePlayers[0]), setNumber.get());
             tennisScore.setSetScorePlayer(Player._2, Integer.parseInt(setScorePlayers[1]), setNumber.get());
-            if (setNumber.get() < setScores.size()) {
-                tennisScore.addNewSet();
-                setNumber.getAndIncrement();
-            }
+
+            setNumber.getAndIncrement();
+
         });
     }
 

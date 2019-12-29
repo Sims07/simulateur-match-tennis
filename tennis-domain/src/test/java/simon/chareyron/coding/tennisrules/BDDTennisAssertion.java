@@ -1,12 +1,13 @@
 package simon.chareyron.coding.tennisrules;
 
-import static org.assertj.core.api.BDDAssertions.then;
-
-import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicInteger;
 import simon.chareyron.coding.tennisrules.domain.Player;
 import simon.chareyron.coding.tennisrules.domain.Referee;
 import simon.chareyron.coding.tennisrules.domain.TennisScore;
+
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.assertj.core.api.BDDAssertions.then;
 
 public class BDDTennisAssertion {
 
@@ -55,5 +56,9 @@ public class BDDTennisAssertion {
 
     private String formatPlayer() {
         return referee.getWiningPlayer() == Player._1 ? "1" : "2";
+    }
+
+    public void thenNoWinningPlayer() {
+        then(referee.getWiningPlayer()).isNull();
     }
 }

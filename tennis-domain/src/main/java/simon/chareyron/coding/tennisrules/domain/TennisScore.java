@@ -44,6 +44,7 @@ public class TennisScore {
     public void setSetScorePlayer(Player player, int setScorePlayer, int setNumber) {
         SetScore setScoreToUpdate = getOrCreateSetScore(setNumber);
         setScoreToUpdate.setScorePlayer(player, setScorePlayer);
+        this.currentSet = setNumber;
     }
 
     public boolean nextSetScoreForPlayer(Player winnerPointPlayer) {
