@@ -1,1 +1,3 @@
-{{ setIndex }} {{ score_1 }} {{ score_2 }} 
+<div fxFlex="30" *ngIf="score_1>0 || score_2>0" fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
+    {{ score_1 }} {{ score_2 }} 
+</div>

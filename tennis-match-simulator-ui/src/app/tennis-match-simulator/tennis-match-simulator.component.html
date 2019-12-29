@@ -1,6 +1,8 @@
 <div fxLayout="row" fxFlexFill fxLayoutAlign="space-around center" *ngIf="simulatedMatch$ | async as simulatedMatch">
-  <player fxFlex="20"></player>
-  <div fxFlex="30" fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
+  <div fxFlex="10">
+    <player></player>
+  </div>
+  <div fxFlex="60" fxLayout="row" fxFlexAlign="stretch" fxLayoutAlign="center center">
     <div *ngFor="let setScores of simulatedMatch.setScores | keyvalue">
       <set-score [setIndex]="setScores.key" [score_1]="setScores.value.score['_1']" [score_2]="setScores.value.score['_2']"></set-score>
     </div>
@@ -8,7 +10,9 @@
       <game-score [score_1]="simulatedMatch.gameScore.score['_1']" [score_2]="simulatedMatch.gameScore.score['_2']"></game-score>
     </div>
   </div>
-  <player fxFlex="20"></player>
+  <div fxFlex="10">
+    <player></player>
+  </div>
 </div>
 
 

@@ -12,17 +12,9 @@ export class GameScoreComponent implements OnInit {
   score_1:any;
   @Input()
   score_2:any;
-  score:any;
 
   constructor(private tennisMatchSimulator:TennisMatchSimulatorService) { }
 
   ngOnInit() {
   }
-
-  updateScores(){
-    this.score_1=this.score['_1'];
-    this.score_2=this.score['_2'];
-  }
-
-
 }
