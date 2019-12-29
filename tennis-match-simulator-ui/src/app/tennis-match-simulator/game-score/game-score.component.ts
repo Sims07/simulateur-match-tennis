@@ -4,7 +4,7 @@ import { TennisMatchSimulatorService } from 'src/app/tennis-match-simulator.serv
 @Component({
   selector: 'game-score',
   templateUrl: './game-score.component.html',
-  styleUrls: ['./game-score.component.css']
+  styleUrls: ['./game-score.component.scss']
 })
 export class GameScoreComponent implements OnInit {
 

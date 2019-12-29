@@ -6,7 +6,7 @@
     <div *ngFor="let setScores of simulatedMatch.setScores | keyvalue">
       <set-score [setIndex]="setScores.key" [score_1]="setScores.value.score['_1']" [score_2]="setScores.value.score['_2']"></set-score>
     </div>
-    <div fxFlex="20" fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
+    <div>
       <game-score [score_1]="simulatedMatch.gameScore.score['_1']" [score_2]="simulatedMatch.gameScore.score['_2']"></game-score>
     </div>
   </div>

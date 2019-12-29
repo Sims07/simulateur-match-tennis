@@ -1,3 +1,8 @@
-<div class="nums" fxFlex="30" *ngIf="score_1>0 || score_2>0" fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
-    {{ score_1 }} {{ score_2 }} 
+<div class="set" *ngIf="score_1>0 || score_2>0" fxLayout="column" fxFlexAlign="stretch" fxLayoutAlign="center center">
+    <div class="set__score">
+        {{ score_1 }}  
+    </div>
+    <div class="set__score">
+        {{ score_2 }} 
+    </div>
 </div>
