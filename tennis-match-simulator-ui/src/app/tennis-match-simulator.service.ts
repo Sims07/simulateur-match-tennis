@@ -12,7 +12,6 @@ export class TennisMatchSimulatorService {
   baseUrl="http://localhost:8080/tennisMatchSimulation";
   
   constructor(private zone: NgZone) {
-    this.simulateTennisMatch();
   }
 
   simulateTennisMatch(){
