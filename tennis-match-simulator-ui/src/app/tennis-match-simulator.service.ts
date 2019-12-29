@@ -17,6 +17,7 @@ export class TennisMatchSimulatorService {
 
   simulateTennisMatch(){
     console.log("simulate match")
+    this.simulatedMatch$=null;
     this.simulatedMatch$ = Observable.create((observer) => {
       let eventSource = new EventSource(this.baseUrl);
         eventSource.onmessage = (event) => {

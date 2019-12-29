@@ -10,23 +10,15 @@ export class SetScoreComponent implements OnInit {
 
   @Input()
   setIndex;
-  
+  @Input()
   score_1:any;
+  @Input()
   score_2:any;
 
-  constructor(private tennisMatchSimulator:TennisMatchSimulatorService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.tennisMatchSimulator.simulatedMatch$.subscribe(
-      (data)=> {
-        this.updateScores(data);
-      }
-    )
   }
 
-  updateScores(data){
-    this.score_1=data.setScores[this.setIndex]?data.setScores[this.setIndex].score['_1']:"-";
-    this.score_2=data.setScores[this.setIndex]?data.setScores[this.setIndex].score['_2']:"-";
-  }
 
 }

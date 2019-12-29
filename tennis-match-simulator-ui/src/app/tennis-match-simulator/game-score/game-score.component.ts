@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TennisMatchSimulatorService } from 'src/app/tennis-match-simulator.service';
 
 @Component({
@@ -8,19 +8,15 @@ import { TennisMatchSimulatorService } from 'src/app/tennis-match-simulator.serv
 })
 export class GameScoreComponent implements OnInit {
 
+  @Input()
   score_1:any;
+  @Input()
   score_2:any;
   score:any;
 
   constructor(private tennisMatchSimulator:TennisMatchSimulatorService) { }
 
   ngOnInit() {
-    this.tennisMatchSimulator.simulatedMatch$.subscribe(
-      (data)=> {
-        this.score=data.gameScore.score
-        this.updateScores();
-      }
-    )
   }
 
   updateScores(){
