@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TennisMatchSimulatorService } from '../tennis-match-simulator.service';
 import { Router } from '@angular/router';
+import { RandomPlayerService } from '../random-player.service';
 
 @Component({
   selector: 'tennis-match-simulator',
@@ -11,15 +12,21 @@ import { Router } from '@angular/router';
 export class TennisMatchSimulatorComponent implements OnInit {
 
   simulatedMatch$;
+  randomPlayers$;
 
-  constructor(private tennisMatchSimulator: TennisMatchSimulatorService,private router:Router) { }
+  constructor(private tennisMatchSimulator: TennisMatchSimulatorService
+    ,private randomPlayerService:RandomPlayerService
+    ,private router:Router) { }
 
   ngOnInit() {
-    this.tennisMatchSimulator.simulateTennisMatch();
-    this.simulatedMatch$= this.tennisMatchSimulator.simulatedMatch$;
+    this.simulateTennisMatch();
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
+    }
   }
-  
+
+  simulateTennisMatch(){
+    this.randomPlayers$ = this.randomPlayerService.loadTwoRandomPlayers();
+    this.simulatedMatch$ = this.tennisMatchSimulator.simulateTennisMatch();
   }
 }

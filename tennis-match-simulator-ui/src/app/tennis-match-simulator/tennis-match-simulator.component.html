@@ -1,16 +1,20 @@
-<div class="scoreboard" fxLayout="row" *ngIf="simulatedMatch$ | async as simulatedMatch">
-  <div class="scoreboard__player">
-    <player></player>
-    <player></player>
-  </div>
-  <div fxLayout="row">
-    <div *ngFor="let setScores of simulatedMatch.setScores | keyvalue">
-      <set-score [setIndex]="setScores.key" [score_1]="setScores.value.score['_1']" [score_2]="setScores.value.score['_2']"></set-score>
+<div fxLayout="row" fxFill  fxLayoutAlign="center center" *ngIf="randomPlayers$ | async as randomPlayers">
+
+  <div class="scoreboard" fxLayout="row" *ngIf="simulatedMatch$ | async as simulatedMatch">
+    <div class="scoreboard__player">
+      <player [info]="randomPlayers[0]"></player>
+      <player [info]="randomPlayers[1]"></player>
     </div>
-    <div>
-      <game-score [score_1]="simulatedMatch.gameScore.score['_1']" [score_2]="simulatedMatch.gameScore.score['_2']"></game-score>
+    <div fxLayout="row">
+      <div *ngFor="let setScores of simulatedMatch.setScores | keyvalue">
+        <set-score [setIndex]="setScores.key" [score_1]="setScores.value.score['_1']" [score_2]="setScores.value.score['_2']"></set-score>
+      </div>
+      <div>
+        <game-score [score_1]="simulatedMatch.gameScore.score['_1']" [score_2]="simulatedMatch.gameScore.score['_2']"></game-score>
+      </div>
     </div>
   </div>
+
 </div>
 
 

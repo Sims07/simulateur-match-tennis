@@ -14,7 +14,7 @@ export class TennisMatchSimulatorService {
   constructor(private zone: NgZone) {
   }
 
-  simulateTennisMatch(){
+  simulateTennisMatch(): Observable<any>{
     console.log("simulate match")
     this.simulatedMatch$=null;
     this.simulatedMatch$ = Observable.create((observer) => {
@@ -30,6 +30,7 @@ export class TennisMatchSimulatorService {
       }),
       shareReplay()
     )
+    return this.simulatedMatch$;
   }
   
 }
