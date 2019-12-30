@@ -5,7 +5,7 @@ import simon.chareyron.tennis.controller.impl.TennisMatchSimulatorControllerImpl
 import simon.chareyron.tennis.mapper.mapstruct.TennisScoreMapStrutMapperImpl;
 import simon.chareyron.tennis.presenter.ReactiveSimulateMatchPresenterImpl;
 import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCaseImpl;
-import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;

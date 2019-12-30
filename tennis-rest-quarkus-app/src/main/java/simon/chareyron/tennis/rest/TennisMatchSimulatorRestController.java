@@ -4,7 +4,7 @@ import io.reactivex.Flowable;
 import reactor.adapter.rxjava.RxJava2Adapter;
 import reactor.core.publisher.Flux;
 import simon.chareyron.tennis.controller.TennisMatchSimulatorController;
-import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

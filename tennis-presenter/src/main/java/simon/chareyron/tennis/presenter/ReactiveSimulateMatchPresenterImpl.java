@@ -2,7 +2,7 @@ package simon.chareyron.tennis.presenter;
 
 import reactor.core.publisher.Flux;
 import simon.chareyron.tennis.usecase.SimulateTennisMatchOutput;
-import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 import java.util.List;
 

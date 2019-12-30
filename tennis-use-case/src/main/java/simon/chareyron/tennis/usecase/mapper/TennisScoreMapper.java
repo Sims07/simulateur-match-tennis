@@ -1,7 +1,7 @@
 package simon.chareyron.tennis.usecase.mapper;
 
 import simon.chareyron.coding.tennisrules.domain.TennisScore;
-import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 public interface TennisScoreMapper {
 

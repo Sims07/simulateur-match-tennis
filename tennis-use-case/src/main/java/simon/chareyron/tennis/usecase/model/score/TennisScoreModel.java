@@ -1,4 +1,4 @@
-package simon.chareyron.tennis.usecase.model;
+package simon.chareyron.tennis.usecase.model.score;
 
 import java.util.Map;
 

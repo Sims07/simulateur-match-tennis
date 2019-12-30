@@ -1,6 +1,6 @@
 package simon.chareyron.tennis.usecase;
 
-import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 import java.util.List;
 

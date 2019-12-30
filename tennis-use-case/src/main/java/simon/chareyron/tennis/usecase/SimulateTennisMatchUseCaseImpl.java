@@ -4,7 +4,7 @@ import simon.chareyron.coding.tennisrules.domain.Player;
 import simon.chareyron.coding.tennisrules.domain.Referee;
 import simon.chareyron.coding.tennisrules.domain.TennisScore;
 import simon.chareyron.tennis.usecase.mapper.TennisScoreMapper;
-import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 import java.util.ArrayList;
 import java.util.List;

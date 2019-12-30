@@ -3,15 +3,17 @@ package simon.chareyron.tennis.rest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Flux;
+import simon.chareyron.tennis.controller.SelectRandomPlayersController;
 import simon.chareyron.tennis.controller.TennisMatchSimulatorController;
+import simon.chareyron.tennis.controller.impl.SelectRandomPlayersControllerImpl;
 import simon.chareyron.tennis.controller.impl.TennisMatchSimulatorControllerImpl;
+import simon.chareyron.tennis.gateway.player.PlayerGatewayInMemoryImpl;
 import simon.chareyron.tennis.mapper.mapstruct.TennisScoreMapStrutMapperImpl;
 import simon.chareyron.tennis.presenter.ReactiveSimulateMatchPresenterImpl;
-import simon.chareyron.tennis.usecase.SimulateTennisMatchOutput;
-import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCase;
-import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCaseImpl;
+import simon.chareyron.tennis.usecase.*;
+import simon.chareyron.tennis.usecase.gateway.PlayerGateway;
 import simon.chareyron.tennis.usecase.mapper.TennisScoreMapper;
-import simon.chareyron.tennis.usecase.model.TennisScoreModel;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 @Configuration
 public class AppConfig {
@@ -24,6 +26,21 @@ public class AppConfig {
     @Bean
     public TennisScoreMapper tennisScoreMapper() {
         return new TennisScoreMapStrutMapperImpl();
+    }
+
+    @Bean
+    public SelectRandomPlayersController selectRandomPlayersController(SelectRandomPlayersUseCase selectRandomPlayersUseCase) {
+        return new SelectRandomPlayersControllerImpl(selectRandomPlayersUseCase);
+    }
+
+    @Bean
+    public SelectRandomPlayersUseCase selectRandomPlayersUseCase(PlayerGateway playerGateway) {
+        return new SelectRandomPlayersUseCaseImpl(playerGateway);
+    }
+
+    @Bean
+    public PlayerGateway playerGateway() {
+        return new PlayerGatewayInMemoryImpl();
     }
 
     @Bean
