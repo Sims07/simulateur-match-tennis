@@ -16,13 +16,10 @@ rectangle "Frameworks & Drivers" {
 [tennis-rest-quarkus-app] as restQuarkusApp #99ccff
 }
 
-rectangle "Mapper Frameworks" {
-[tennis-mapper-mapstruct] as mapper #99ccff
-}
-
 rectangle "Adapters" {
-[tennis-presenter] as presenter #ccffcc
 [tennis-controller] as controller #ccffcc
+[tennis-player-gateway-in-memory] as player_gateway #ccffcc
+[tennis-mapper-mapstruct] as mapper #ccffcc
 }
 
 consoleApp -D-> controller
@@ -30,10 +27,11 @@ restQuarkusApp  -D-> controller
 restSpringApp -D-> controller
 
 controller -D-> uc
-presenter -D-|> uc
 
 uc -D-> domain
 mapper -R-|> uc
 mapper -R-> domain
+
+player_gateway  -R-|> uc
 
 @enduml

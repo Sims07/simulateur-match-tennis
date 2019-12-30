@@ -13,7 +13,6 @@
         <module>tennis-domain</module>
         <module>tennis-use-case</module>
         <module>tennis-controller</module>
-        <module>tennis-presenter</module>
         <module>tennis-mapper-mapstruct</module>
 
         <module>tennis-console-app</module>

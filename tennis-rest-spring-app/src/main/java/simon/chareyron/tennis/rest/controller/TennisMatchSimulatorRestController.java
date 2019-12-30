@@ -17,7 +17,7 @@ import java.time.temporal.ChronoUnit;
 @RequestMapping("/tennisMatchSimulation")
 public class TennisMatchSimulatorRestController {
 
-    private final TennisMatchSimulatorController<Flux<TennisScoreModel>> tennisMatchSimulatorController;
+    private final TennisMatchSimulatorController tennisMatchSimulatorController;
 
     public TennisMatchSimulatorRestController(TennisMatchSimulatorController tennisMatchSimulatorController) {
         this.tennisMatchSimulatorController = tennisMatchSimulatorController;

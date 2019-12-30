@@ -2,7 +2,6 @@ package simon.chareyron.tennis.rest;
 
 import io.reactivex.Flowable;
 import reactor.adapter.rxjava.RxJava2Adapter;
-import reactor.core.publisher.Flux;
 import simon.chareyron.tennis.controller.TennisMatchSimulatorController;
 import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
@@ -15,7 +14,7 @@ import java.time.temporal.ChronoUnit;
 @Path("/tennisMatchSimulation")
 public class TennisMatchSimulatorRestController {
 
-    private final TennisMatchSimulatorController<Flux<TennisScoreModel>> tennisMatchSimulatorController;
+    private final TennisMatchSimulatorController tennisMatchSimulatorController;
 
     public TennisMatchSimulatorRestController(TennisMatchSimulatorController tennisMatchSimulatorController) {
         this.tennisMatchSimulatorController = tennisMatchSimulatorController;

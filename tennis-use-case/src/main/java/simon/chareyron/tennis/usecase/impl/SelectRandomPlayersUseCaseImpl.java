@@ -1,5 +1,6 @@
-package simon.chareyron.tennis.usecase;
+package simon.chareyron.tennis.usecase.impl;
 
+import simon.chareyron.tennis.usecase.SelectRandomPlayersUseCase;
 import simon.chareyron.tennis.usecase.gateway.PlayerGateway;
 import simon.chareyron.tennis.usecase.model.actors.PlayerModel;
 

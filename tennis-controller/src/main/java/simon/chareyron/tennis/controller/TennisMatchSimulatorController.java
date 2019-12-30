@@ -1,6 +1,8 @@
 package simon.chareyron.tennis.controller;
 
-public interface TennisMatchSimulatorController<T> {
+import reactor.core.publisher.Flux;
+import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
-    T simulateTennisMatch(int nbWinningSet);
+public interface TennisMatchSimulatorController {
+    Flux<TennisScoreModel> simulateTennisMatch(int nbWinningSet);
 }

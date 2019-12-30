@@ -2,18 +2,18 @@ package simon.chareyron.tennis.rest;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import reactor.core.publisher.Flux;
 import simon.chareyron.tennis.controller.SelectRandomPlayersController;
 import simon.chareyron.tennis.controller.TennisMatchSimulatorController;
 import simon.chareyron.tennis.controller.impl.SelectRandomPlayersControllerImpl;
 import simon.chareyron.tennis.controller.impl.TennisMatchSimulatorControllerImpl;
 import simon.chareyron.tennis.gateway.player.PlayerGatewayInMemoryImpl;
 import simon.chareyron.tennis.mapper.mapstruct.TennisScoreMapStrutMapperImpl;
-import simon.chareyron.tennis.presenter.ReactiveSimulateMatchPresenterImpl;
-import simon.chareyron.tennis.usecase.*;
+import simon.chareyron.tennis.usecase.SelectRandomPlayersUseCase;
+import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCase;
 import simon.chareyron.tennis.usecase.gateway.PlayerGateway;
+import simon.chareyron.tennis.usecase.impl.SelectRandomPlayersUseCaseImpl;
+import simon.chareyron.tennis.usecase.impl.SimulateTennisMatchUseCaseImpl;
 import simon.chareyron.tennis.usecase.mapper.TennisScoreMapper;
-import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
 @Configuration
 public class AppConfig {
@@ -44,13 +44,8 @@ public class AppConfig {
     }
 
     @Bean
-    public SimulateTennisMatchUseCase simulateTennisMatchUseCase(TennisScoreMapper tennisScoreMapper, SimulateTennisMatchOutput simulateTennisMatchOutput) {
-        return new SimulateTennisMatchUseCaseImpl(tennisScoreMapper, simulateTennisMatchOutput);
-    }
-
-    @Bean
-    public SimulateTennisMatchOutput<Flux<TennisScoreModel>> simulateTennisMatchOutput() {
-        return new ReactiveSimulateMatchPresenterImpl();
+    public SimulateTennisMatchUseCase simulateTennisMatchUseCase(TennisScoreMapper tennisScoreMapper) {
+        return new SimulateTennisMatchUseCaseImpl(tennisScoreMapper);
     }
 
 }

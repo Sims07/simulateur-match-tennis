@@ -1,8 +1,9 @@
-package simon.chareyron.tennis.usecase;
+package simon.chareyron.tennis.usecase.impl;
 
 import simon.chareyron.coding.tennisrules.domain.Player;
 import simon.chareyron.coding.tennisrules.domain.Referee;
 import simon.chareyron.coding.tennisrules.domain.TennisScore;
+import simon.chareyron.tennis.usecase.SimulateTennisMatchUseCase;
 import simon.chareyron.tennis.usecase.mapper.TennisScoreMapper;
 import simon.chareyron.tennis.usecase.model.score.TennisScoreModel;
 
@@ -16,16 +17,14 @@ import java.util.Random;
 public class SimulateTennisMatchUseCaseImpl<T> implements SimulateTennisMatchUseCase<T> {
 
     private final TennisScoreMapper tennisScoreMapper;
-    private final SimulateTennisMatchOutput<T> simulateTennisMatchOutput;
     private final Random random = new Random();
 
-    public SimulateTennisMatchUseCaseImpl(TennisScoreMapper tennisScoreMapper, SimulateTennisMatchOutput<T> simulateTennisMatchOutput) {
+    public SimulateTennisMatchUseCaseImpl(TennisScoreMapper tennisScoreMapper) {
         this.tennisScoreMapper = tennisScoreMapper;
-        this.simulateTennisMatchOutput = simulateTennisMatchOutput;
     }
 
     @Override
-    public T playRandomMatch(int nbWinningSet) {
+    public List<TennisScoreModel> playRandomMatch(int nbWinningSet) {
         List<TennisScoreModel> tennisScoreModel = new ArrayList<>();
         TennisScore tennisScore = initScoreMatchTennis();
         Referee referee = new Referee(tennisScore, nbWinningSet);
@@ -35,7 +34,7 @@ public class SimulateTennisMatchUseCaseImpl<T> implements SimulateTennisMatchUse
             tennisScoreModel.add(map(tennisScore));
         }
         tennisScoreModel.add(map(tennisScore));
-        return simulateTennisMatchOutput.presentMatchScores(tennisScoreModel);
+        return tennisScoreModel;
     }
 
     private TennisScore initScoreMatchTennis() {
