@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>simulateur-match-tennis</artifactId>
+        <artifactId>tennis-adapters</artifactId>
         <groupId>simon.chareyron.tennis</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>simon.chareyron.tennis</groupId>
-    <artifactId>tennis-use-case</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
+    <artifactId>tennis-player-gateway-in-memory</artifactId>
     <dependencies>
         <dependency>
             <groupId>simon.chareyron.tennis</groupId>
-            <artifactId>tennis-domain</artifactId>
+            <artifactId>tennis-use-case</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

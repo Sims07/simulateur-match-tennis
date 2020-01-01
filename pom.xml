@@ -10,15 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>tennis-domain</module>
-        <module>tennis-use-case</module>
-        <module>tennis-controller</module>
-        <module>tennis-mapper-mapstruct</module>
-
-        <module>tennis-console-app</module>
-        <module>tennis-rest-spring-app</module>
-        <module>tennis-rest-quarkus-app</module>
-        <module>tennis-player-gateway-in-memory</module>
+        <module>tennis-business-rules</module>
+        <module>tennis-adapters</module>
+        <module>tennis-apps</module>
     </modules>
 
     <properties>

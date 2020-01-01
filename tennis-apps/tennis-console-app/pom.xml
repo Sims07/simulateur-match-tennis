@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>simulateur-match-tennis</artifactId>
+        <artifactId>tennis-apps</artifactId>
         <groupId>simon.chareyron.tennis</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
