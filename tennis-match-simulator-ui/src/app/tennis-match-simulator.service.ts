@@ -9,8 +9,8 @@ import { catchError, delay, shareReplay, tap, map, filter } from 'rxjs/operators
 export class TennisMatchSimulatorService {
   simulatedMatch$: Observable<any>
 
-  baseUrl="http://localhost:8080/tennisMatchSimulation";
-  
+  baseUrl="http://localhost:4000/tennisMatchSimulation";
+
   constructor(private zone: NgZone) {
   }
 
@@ -24,7 +24,7 @@ export class TennisMatchSimulatorService {
         };
         eventSource.onerror = (error) => {observer.error(error);eventSource.close();}
     })
-    .pipe(    
+    .pipe(
       tap(data => {
         console.log(data);
       }),
@@ -32,5 +32,5 @@ export class TennisMatchSimulatorService {
     )
     return this.simulatedMatch$;
   }
-  
+
 }

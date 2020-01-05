@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class RandomPlayerService {
 
-  private baseUrl="http://localhost:8080/randomPlayers";
-  
+  private baseUrl="http://localhost:4000/randomPlayers";
+
 
   constructor(private http:HttpClient) { }
 

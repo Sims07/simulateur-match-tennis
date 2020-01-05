@@ -1,4 +1,4 @@
-package simon.chareyron.tennis.rest;
+package simon.chareyron.tennis.rest.controller;
 
 import io.reactivex.Flowable;
 import reactor.adapter.rxjava.RxJava2Adapter;

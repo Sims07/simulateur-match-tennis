@@ -1,0 +1,54 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3.7'
+
+# Define services
+services:
+
+  # App backend service
+  tennis-rest-spring-app:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: tennis-apps/tennis-rest-spring-app
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+      - "9000:9000"
+    networks:
+      - tennis-network
+  tennis-rest-quarkus-app:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: tennis-apps/tennis-rest-quarkus-app
+      dockerfile: src/main/docker/Dockerfile.jvm
+    restart: "no"
+    ports:
+      - "9001:9001"
+    networks:
+      - tennis-network
+  tennis-rest-micronaut-app:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: tennis-apps/tennis-rest-micronaut-app
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+      - "9002:9002"
+    networks:
+      - tennis-network
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - tennis-rest-spring-app
+      - tennis-rest-micronaut-app
+      - tennis-rest-quarkus-app
+    ports:
+      - "4000:4000"
+    networks:
+      - tennis-network
+
+networks:
+  tennis-network:
