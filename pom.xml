@@ -13,6 +13,7 @@
         <module>tennis-business-rules</module>
         <module>tennis-adapters</module>
         <module>tennis-apps</module>
+        <module>tennis-aws-lambda-app</module>
     </modules>
 
     <properties>

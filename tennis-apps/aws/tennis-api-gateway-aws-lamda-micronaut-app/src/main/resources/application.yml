@@ -1,0 +1,3 @@
+micronaut:
+  application:
+    name: tennis-api-gateway-aws-lamda-micronaut-app
