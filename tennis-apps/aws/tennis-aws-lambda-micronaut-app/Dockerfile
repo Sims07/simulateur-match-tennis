@@ -13,13 +13,14 @@ RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel z
     && rm -rf /var/cache/yum
 
 
-ENV GRAAL_VERSION 19.2.1
-ENV GRAAL_FILENAME graalvm-ce-linux-amd64-${GRAAL_VERSION}.tar.gz
+ENV GRAAL_VERSION 19.3.0.2
+ENV GRAAL_FILENAME graalvm-ce-java11-linux-amd64-${GRAAL_VERSION}.tar.gz
 
-RUN curl -4 -L https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-linux-amd64-${GRAAL_VERSION}.tar.gz -o /tmp/${GRAAL_FILENAME}
+RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-19.3.0.2/graalvm-ce-java11-linux-amd64-19.3.0.2.tar.gz -o /tmp/${GRAAL_FILENAME}
+# https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-linux-amd64-${GRAAL_VERSION}.tar.gz -o /tmp/${GRAAL_FILENAME}
 
 RUN tar -zxvf /tmp/${GRAAL_FILENAME} -C /tmp \
-    && mv /tmp/graalvm-ce-${GRAAL_VERSION} /usr/lib/graalvm
+    && mv /tmp/graalvm-ce-java11-${GRAAL_VERSION} /usr/lib/graalvm
 
 RUN rm -rf /tmp/*
 CMD ["/usr/lib/graalvm/bin/native-image"]
@@ -28,10 +29,10 @@ FROM graalvm
 COPY --from=builder /home/application/ /home/application/
 WORKDIR /home/application
 RUN /usr/lib/graalvm/bin/gu install native-image
-RUN /usr/lib/graalvm/bin/native-image --no-server -cp target/tennis-aws-lambda-micronaut-app-*.jar 
+RUN /usr/lib/graalvm/bin/native-image --no-server -cp target/tennis-aws-lambda-micronaut-app-*.jar -H:ReflectionConfigurationFiles=reflectconfig
 RUN chmod 755 bootstrap
 RUN chmod 755 server
-RUN cp /usr/lib/graalvm/jre/lib/amd64/libsunec.so libsunec.so
+RUN cp /usr/lib/graalvm/lib/libsunec.so libsunec.so
 RUN zip -j function.zip bootstrap server libsunec.so
 EXPOSE 8080
 ENTRYPOINT ["/home/application/server"]

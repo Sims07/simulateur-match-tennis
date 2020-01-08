@@ -15,6 +15,7 @@
         <module>tennis-rest-spring-app</module>
         <module>tennis-rest-quarkus-app</module>
         <module>tennis-rest-micronaut-app</module>
+        <module>aws</module>
     </modules>
 
 </project>
