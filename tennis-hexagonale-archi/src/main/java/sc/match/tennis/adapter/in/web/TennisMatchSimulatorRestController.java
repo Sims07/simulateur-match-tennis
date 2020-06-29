@@ -1,4 +1,4 @@
-package sc.match.tennis.adapter.in;
+package sc.match.tennis.adapter.in.web;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
