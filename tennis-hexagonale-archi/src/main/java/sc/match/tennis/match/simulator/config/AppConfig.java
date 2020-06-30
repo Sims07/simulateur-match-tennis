@@ -1,11 +1,11 @@
-package sc.match.tennis.match.simulator;
+package sc.match.tennis.match.simulator.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import sc.match.tennis.match.simulator.adapter.out.console.DisplayWinnerPlayerConsoleAdapter;
-import sc.match.tennis.match.simulator.adapter.out.persistence.LoadWinnerMatchPlayersAdapter;
-import sc.match.tennis.match.simulator.adapter.out.persistence.SaveMatchWinnerPlayerAdapter;
+import sc.match.tennis.match.simulator.adapter.out.persistence.LoadWinnerMatchPlayerPersistenceAdapter;
+import sc.match.tennis.match.simulator.adapter.out.persistence.SaveMatchWinnerPlayerPersistenceAdapter;
 import sc.match.tennis.match.simulator.adapter.out.persistence.repository.WinnerMatchPlayerRepository;
 import sc.match.tennis.match.simulator.application.GetWinnerMatchPlayersService;
 import sc.match.tennis.match.simulator.application.PlayRandomMatchService;
@@ -19,7 +19,6 @@ import sc.match.tennis.match.simulator.application.port.out.SaveMatchWinnerPlaye
 
 @Configuration
 public class AppConfig {
-
 
     @Bean
     public TennisScoreMapper tennisScoreMapper() {
@@ -35,12 +34,12 @@ public class AppConfig {
     @Bean
     @Profile("db")
     public SaveMatchWinnerPlayerPort saveMatchWinnerPlayerPort(WinnerMatchPlayerRepository winnerMatchPlayerRepository) {
-        return new SaveMatchWinnerPlayerAdapter(winnerMatchPlayerRepository);
+        return new SaveMatchWinnerPlayerPersistenceAdapter(winnerMatchPlayerRepository);
     }
 
     @Bean
     public LoadWinnerMatchPlayersPort loadWinnerMatchPlayersPort(WinnerMatchPlayerRepository winnerMatchPlayerRepository) {
-        return new LoadWinnerMatchPlayersAdapter(winnerMatchPlayerRepository);
+        return new LoadWinnerMatchPlayerPersistenceAdapter(winnerMatchPlayerRepository);
     }
 
     @Bean

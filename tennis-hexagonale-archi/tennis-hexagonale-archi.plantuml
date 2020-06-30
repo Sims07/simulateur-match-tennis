@@ -1,0 +1,314 @@
+@startuml
+
+title __TENNIS-HEXAGONALE-ARCHI's Class Diagram__\n
+
+  namespace sc.match.tennis.match.simulator {
+    class sc.match.tennis.match.simulator.config.AppConfig {
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    class sc.match.tennis.match.simulator.TennisRestApp {
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace adapter.in.web {
+      class sc.match.tennis.match.simulator.adapter.in.web.TennisMatchSimulatorRestController {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace adapter.in.web {
+      class sc.match.tennis.match.simulator.adapter.in.web.WinnerMatchPlayersRestController {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace adapter.out.console {
+      class sc.match.tennis.match.simulator.adapter.out.console.DisplayWinnerPlayerConsoleAdapter {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace adapter.out.persistence {
+      class sc.match.tennis.match.simulator.adapter.out.persistence.LoadWinnerMatchPlayerPersistenceAdapter {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace adapter.out.persistence {
+      class sc.match.tennis.match.simulator.adapter.out.persistence.SaveMatchWinnerPlayerPersistenceAdapter {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace adapter.out.persistence {
+      namespace model {
+        class sc.match.tennis.match.simulator.adapter.out.persistence.model.WinnerMatchPlayerEntity {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace adapter.out.persistence {
+      namespace repository {
+        interface sc.match.tennis.match.simulator.adapter.out.persistence.repository.WinnerMatchPlayerRepository {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      class sc.match.tennis.match.simulator.application.GetWinnerMatchPlayersService {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      class sc.match.tennis.match.simulator.application.PlayRandomMatchService {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace mapper {
+        interface sc.match.tennis.match.simulator.application.mapper.TennisScoreMapper {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace mapper {
+        class sc.match.tennis.match.simulator.application.mapper.TennisScoreMapperImpl {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        interface sc.match.tennis.match.simulator.application.port.in.GetWinnerMatchPlayersQuery {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        interface sc.match.tennis.match.simulator.application.port.in.PlayRandomMatchUseCase {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        namespace model {
+          class sc.match.tennis.match.simulator.application.port.in.model.GameScoreModel {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        namespace model {
+          enum Player {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        namespace model {
+          abstract class sc.match.tennis.match.simulator.application.port.in.model.ScoreModel {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        namespace model {
+          class sc.match.tennis.match.simulator.application.port.in.model.SetScoreModel {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        namespace model {
+          class sc.match.tennis.match.simulator.application.port.in.model.TennisScoreModel {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.in {
+        namespace model {
+          class sc.match.tennis.match.simulator.application.port.in.model.TieBreakScoreModel {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.out {
+        interface sc.match.tennis.match.simulator.application.port.out.LoadWinnerMatchPlayersPort {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace application {
+      namespace port.out {
+        interface sc.match.tennis.match.simulator.application.port.out.SaveMatchWinnerPlayerPort {
+        }
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace domain {
+      class sc.match.tennis.match.simulator.domain.GameScore {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace domain {
+      enum Player {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace domain {
+      class sc.match.tennis.match.simulator.domain.Referee {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace domain {
+      abstract class sc.match.tennis.match.simulator.domain.Score {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace domain {
+      class sc.match.tennis.match.simulator.domain.SetScore {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace domain {
+      class sc.match.tennis.match.simulator.domain.TennisScore {
+      }
+    }
+  }
+  
+
+  namespace sc.match.tennis.match.simulator {
+    namespace domain {
+      class sc.match.tennis.match.simulator.domain.TieBreakScore {
+      }
+    }
+  }
+  
+
+  sc.match.tennis.match.simulator.adapter.in.web.TennisMatchSimulatorRestController o-- sc.match.tennis.match.simulator.application.port.in.PlayRandomMatchUseCase : tennisMatchUseCase
+  sc.match.tennis.match.simulator.adapter.in.web.WinnerMatchPlayersRestController o-- sc.match.tennis.match.simulator.application.port.in.GetWinnerMatchPlayersQuery : getWinnerMatchPlayersQuery
+  sc.match.tennis.match.simulator.adapter.out.console.DisplayWinnerPlayerConsoleAdapter .up.|> sc.match.tennis.match.simulator.application.port.out.SaveMatchWinnerPlayerPort
+  sc.match.tennis.match.simulator.adapter.out.persistence.LoadWinnerMatchPlayerPersistenceAdapter .up.|> sc.match.tennis.match.simulator.application.port.out.LoadWinnerMatchPlayersPort
+  sc.match.tennis.match.simulator.adapter.out.persistence.LoadWinnerMatchPlayerPersistenceAdapter o-- sc.match.tennis.match.simulator.adapter.out.persistence.repository.WinnerMatchPlayerRepository : winnerMatchPlayerRepository
+  sc.match.tennis.match.simulator.adapter.out.persistence.SaveMatchWinnerPlayerPersistenceAdapter .up.|> sc.match.tennis.match.simulator.application.port.out.SaveMatchWinnerPlayerPort
+  sc.match.tennis.match.simulator.adapter.out.persistence.SaveMatchWinnerPlayerPersistenceAdapter o-- sc.match.tennis.match.simulator.adapter.out.persistence.repository.WinnerMatchPlayerRepository : winnerMatchPlayerRepository
+  sc.match.tennis.match.simulator.application.GetWinnerMatchPlayersService .up.|> sc.match.tennis.match.simulator.application.port.in.GetWinnerMatchPlayersQuery
+  sc.match.tennis.match.simulator.application.GetWinnerMatchPlayersService o-- sc.match.tennis.match.simulator.application.port.out.LoadWinnerMatchPlayersPort : loadWinnerMatchPlayersPort
+  sc.match.tennis.match.simulator.application.PlayRandomMatchService .up.|> sc.match.tennis.match.simulator.application.port.in.PlayRandomMatchUseCase
+  sc.match.tennis.match.simulator.application.PlayRandomMatchService o-- sc.match.tennis.match.simulator.application.port.out.SaveMatchWinnerPlayerPort : saveMatchWinnerPlayerPort
+  sc.match.tennis.match.simulator.application.PlayRandomMatchService o-- sc.match.tennis.match.simulator.application.mapper.TennisScoreMapper : tennisScoreMapper
+  sc.match.tennis.match.simulator.application.mapper.TennisScoreMapperImpl .up.|> sc.match.tennis.match.simulator.application.mapper.TennisScoreMapper
+  sc.match.tennis.match.simulator.application.port.in.model.GameScoreModel -up-|> sc.match.tennis.match.simulator.application.port.in.model.ScoreModel
+  sc.match.tennis.match.simulator.application.port.in.model.SetScoreModel -up-|> sc.match.tennis.match.simulator.application.port.in.model.ScoreModel
+  sc.match.tennis.match.simulator.application.port.in.model.SetScoreModel o-- sc.match.tennis.match.simulator.application.port.in.model.TieBreakScoreModel : tieBreakScore
+  sc.match.tennis.match.simulator.application.port.in.model.TennisScoreModel o-- sc.match.tennis.match.simulator.application.port.in.model.GameScoreModel : gameScore
+  sc.match.tennis.match.simulator.application.port.in.model.TieBreakScoreModel -up-|> sc.match.tennis.match.simulator.application.port.in.model.ScoreModel
+  sc.match.tennis.match.simulator.domain.GameScore -up-|> sc.match.tennis.match.simulator.domain.Score
+  sc.match.tennis.match.simulator.domain.Referee o-- sc.match.tennis.match.simulator.domain.TennisScore : tennisScore
+  sc.match.tennis.match.simulator.domain.SetScore -up-|> sc.match.tennis.match.simulator.domain.Score
+  sc.match.tennis.match.simulator.domain.SetScore o-- sc.match.tennis.match.simulator.domain.TieBreakScore : tieBreakScore
+  sc.match.tennis.match.simulator.domain.TennisScore o-- sc.match.tennis.match.simulator.domain.GameScore : gameScore
+  sc.match.tennis.match.simulator.domain.TieBreakScore -up-|> sc.match.tennis.match.simulator.domain.Score
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

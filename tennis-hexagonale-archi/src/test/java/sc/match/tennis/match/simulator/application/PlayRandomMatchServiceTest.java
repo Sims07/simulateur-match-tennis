@@ -16,6 +16,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 
 class PlayRandomMatchServiceTest {
+    
     @Test
     public void should_playRandomMatch_2_sets() {
 
@@ -30,7 +31,7 @@ class PlayRandomMatchServiceTest {
     }
 
     @Test
-    public void should_playRandomMatch_GreaterThan3_sets() {
+    public void should_playRandomMatch_GreaterThan_3_sets_throws_exception() {
 
         TennisScoreMapper tennisScoreMapper = new TennisScoreMapperImpl();
         SaveMatchWinnerPlayerPort saveMatchWinnerPlayerPort = mock(SaveMatchWinnerPlayerPort.class);

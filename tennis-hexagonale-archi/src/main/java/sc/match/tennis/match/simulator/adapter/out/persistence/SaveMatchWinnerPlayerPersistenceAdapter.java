@@ -5,11 +5,11 @@ import sc.match.tennis.match.simulator.adapter.out.persistence.repository.Winner
 import sc.match.tennis.match.simulator.application.port.out.SaveMatchWinnerPlayerPort;
 import sc.match.tennis.match.simulator.domain.Player;
 
-public class SaveMatchWinnerPlayerAdapter implements SaveMatchWinnerPlayerPort {
+public class SaveMatchWinnerPlayerPersistenceAdapter implements SaveMatchWinnerPlayerPort {
 
     private final WinnerMatchPlayerRepository winnerMatchPlayerRepository;
 
-    public SaveMatchWinnerPlayerAdapter(WinnerMatchPlayerRepository winnerMatchPlayerRepository) {
+    public SaveMatchWinnerPlayerPersistenceAdapter(WinnerMatchPlayerRepository winnerMatchPlayerRepository) {
         this.winnerMatchPlayerRepository = winnerMatchPlayerRepository;
     }
 

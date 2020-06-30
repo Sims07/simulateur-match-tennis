@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,19 +13,18 @@ import sc.match.tennis.match.simulator.application.port.in.model.TennisScoreMode
 
 
 @RestController
-@CrossOrigin
 @RequestMapping("/tennisMatchSimulation")
 public class TennisMatchSimulatorRestController {
 
-    private final PlayRandomMatchUseCase tennisMatchUseCase;
+    private final PlayRandomMatchUseCase playRandomMatchUseCase;
 
-    public TennisMatchSimulatorRestController(PlayRandomMatchUseCase tennisMatchUseCase) {
-        this.tennisMatchUseCase = tennisMatchUseCase;
+    public TennisMatchSimulatorRestController(PlayRandomMatchUseCase playRandomMatchUseCase) {
+        this.playRandomMatchUseCase = playRandomMatchUseCase;
     }
 
     @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<TennisScoreModel> tennisMatchSimulation() {
-        return Flux.fromIterable(tennisMatchUseCase.playRandomMatch(2))
+        return Flux.fromIterable(playRandomMatchUseCase.playRandomMatch(2))
                 .delayElements(Duration.of(100, ChronoUnit.MILLIS));
     }
 

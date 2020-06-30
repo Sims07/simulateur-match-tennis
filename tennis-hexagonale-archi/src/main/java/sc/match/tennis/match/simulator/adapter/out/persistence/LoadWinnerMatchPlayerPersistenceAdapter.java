@@ -8,11 +8,11 @@ import sc.match.tennis.match.simulator.adapter.out.persistence.repository.Winner
 import sc.match.tennis.match.simulator.application.port.out.LoadWinnerMatchPlayersPort;
 import sc.match.tennis.match.simulator.domain.Player;
 
-public class LoadWinnerMatchPlayersAdapter implements LoadWinnerMatchPlayersPort {
+public class LoadWinnerMatchPlayerPersistenceAdapter implements LoadWinnerMatchPlayersPort {
 
     private final WinnerMatchPlayerRepository winnerMatchPlayerRepository;
 
-    public LoadWinnerMatchPlayersAdapter(WinnerMatchPlayerRepository winnerMatchPlayerRepository) {
+    public LoadWinnerMatchPlayerPersistenceAdapter(WinnerMatchPlayerRepository winnerMatchPlayerRepository) {
         this.winnerMatchPlayerRepository = winnerMatchPlayerRepository;
     }
 

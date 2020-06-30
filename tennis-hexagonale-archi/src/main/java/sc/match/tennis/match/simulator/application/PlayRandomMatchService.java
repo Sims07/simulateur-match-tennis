@@ -37,8 +37,8 @@ public class PlayRandomMatchService implements PlayRandomMatchUseCase {
             playARandomPoint(tennisScore, referee);
             tennisScoreModel.add(map(tennisScore));
         }
-        saveMatchWinnerPlayerPort.saveMatchWinnerPlayer(referee.getWiningPlayer());
 
+        saveMatchWinnerPlayerPort.saveMatchWinnerPlayer(referee.getWiningPlayer());
         return tennisScoreModel;
     }
 
